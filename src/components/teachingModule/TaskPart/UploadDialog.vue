@@ -14,6 +14,7 @@
       :limit="1"
       :auto-upload="false"
       :file-list="fileList"
+      :headers=headers
       :on-success="returnSuccess">
       <i class="el-icon-upload"></i>
       <div class="el-upload__text">将文件拖到此处，或<em>点击上传</em></div>
@@ -34,6 +35,9 @@
         dialogVisible: false,
         otherParams: {
           courseId: ""
+        },
+        headers:{
+          token:localStorage.token1
         }
       };
     },

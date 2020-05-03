@@ -18,6 +18,7 @@ import SchoolClass from "../components/Administration/SchoolClass";
 import StuManagement from "../components/Administration/StuManagement";
 import TeacherManagement from "../components/Administration/TeacherManagement";
 import TeamManagement from "../components/Administration/TeamManagement";
+import myTimetable from "../components/teamModule/myTimetable";
 
 let teacherMenu = [
     {
@@ -246,7 +247,15 @@ let studentMenu = [
 
                 }
             },
-
+          {
+            path: '/user/timetable',
+            component: myTimetable,
+            meta: {
+              text: "我的课表",
+              teamleader: true,
+              nav: true
+            }
+          },
         ]
     },
 ]
