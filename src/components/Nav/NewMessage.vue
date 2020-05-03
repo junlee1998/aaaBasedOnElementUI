@@ -311,36 +311,29 @@
       ...mapMutations(["updateStatus", "updateInvitationId"])
     },
     mounted() {
-      //   let self = this
-      //
-      //   //初始化时,从localStorage里面获取到当前的未读消息的数量
-      //   this.newMessage = JSON.parse(localStorage.getItem("userInfo")).new_message
-      //
-      //
-      //   setTimeout(function () {
-      //     self.axios({
-      //       method: "get",
-      //       url: "/mail",
-      //       params: {
-      //         userId: localStorage.token//得改
-      //       }
-      //     })
-      //       //如果查询成功,本地缓存用户信息
-      //       .then((res) => {
-      //         self.myMail = res.data
-      //       })
-      //       //如果查询失败,提醒用户重新登录
-      //       .catch(err => {
-      //         self.$message({
-      //           message: "信息加载失败,请稍后再试",
-      //           type: "error",
-      //           duration: 1500,
-      //           showClose: true
-      //         })
-      //       })
-      //   }, 100)
-      // }
-    }
+        let self = this
+        //初始化时,从localStorage里面获取到当前的未读消息的数量
+          self.axios({
+            method: "get",
+            url: "/mail",
+            params: {
+              userId: localStorage.token//得改
+            }
+          })
+            //如果查询成功,本地缓存用户信息
+            .then((res) => {
+              self.myMail = res.data
+            })
+            //如果查询失败,提醒用户重新登录
+            .catch(err => {
+              self.$message({
+                message: "信息加载失败,请稍后再试",
+                type: "error",
+                duration: 1500,
+                showClose: true
+              })
+            })
+        }
   }
 </script>
 

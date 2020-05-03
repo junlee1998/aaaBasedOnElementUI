@@ -4,7 +4,7 @@
     <template v-for="module in moduleInfo">
       <el-card class="box-card" shadow="hover">
         <div slot="header" class="clearfix">
-          <span><b>moduleId:{{module.id}}</b></span>
+          <span><b>批次:{{module.module_index}}</b></span>
           <el-popconfirm
             confirmButtonText='好的'
             cancelButtonText='不用了'
@@ -19,9 +19,10 @@
           <!--          <el-button style="float: right; padding: 3px 0" type="text" @click="decideModule">预约</el-button>-->
         </div>
         <div class="text item">
-          <p>时间:{{module.time}}</p>
-          <p>地点:{{module.location}}</p>
-          <p>学生数:{{module.stu_num}}</p>
+          <p>时间：{{module.date}}</p>
+          <p>时间：{{module.time}}</p>
+          <p>地点：{{module.location}}</p>
+          <p>学生数：{{module.cur_num}}/{{module.stu_num}}</p>
         </div>
       </el-card>
     </template>
@@ -74,7 +75,8 @@
           }
         })
           .then(response => {
-            this.moduleInfo.push(response.data)
+            // this.moduleInfo.push(response.data)
+            this.moduleInfo = [response.data]
             this.isDisabled = true
             this.btnText = "预约中"
           })
@@ -101,6 +103,7 @@
               this.util.feedbackInfo(this, 0)
               this.btnText = "已预约"
               this.isDisabled = true
+              this.getModuleBeenBooked()
             }
           })
           .catch(err => {

@@ -2,24 +2,23 @@
 <template>
   <div>
     <el-table :data="courseList" border stripe style="width: 100%" height="80vh">
-      <el-table-column prop="course_code" label="课程编号" width="180">
+      <el-table-column prop="id" label="课程ID" width="180">
       </el-table-column>
-      <el-table-column prop="course_name" label="课程名" width="180">
+      <el-table-column prop="course_name" label="课程名" >
       </el-table-column>
-      <el-table-column prop="credit" label="学分" width="180"></el-table-column>
-      <el-table-column prop="hours" label="学时" width="180"></el-table-column>
-      <el-table-column prop="is_team" label="是否组队" width="180">
+<!--      <el-table-column prop="credit" label="学分" width="180"></el-table-column>-->
+<!--      <el-table-column prop="hours" label="学时" width="180"></el-table-column>-->
+      <el-table-column prop="is_team" label="是否组队" :formatter="formatBool" width="180">
       </el-table-column>
-      <el-table-column prop="projects" label="projects" width="180">
-      </el-table-column>
-      <el-table-column prop="stu_num" label="学生数" width="180">
-      </el-table-column>
+<!--      <el-table-column prop="projects" label="projects" width="180">-->
+<!--      </el-table-column>-->
+<!--      <el-table-column prop="stu_num" label="学生数" width="180">-->
+<!--      </el-table-column>-->
       <el-table-column
         prop="teachers"
         :formatter="formatTeacherName"
         show-overflow-tooltip
         label="老师"
-        width="180"
       >
       </el-table-column>
 
@@ -49,8 +48,14 @@
       formatTeacherName() {
         //arguments的第三个元素就是本行显示的内容
         return arguments[2].join("　");
+        // return 123456;
       },
-
+      formatBool() {
+        //arguments的第三个元素就是本行显示的内容
+        // console.log(arguments[2])
+        return arguments[2]===true?"是":"否";
+        // return 123456;
+      },
       /**
        * 获取可选课程列表
        */

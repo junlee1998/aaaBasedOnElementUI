@@ -23,12 +23,9 @@ axios.interceptors.request.use(
 // http response 拦截器
 axios.interceptors.response.use(
   response => {
-    if(response.data=="登录状态已过期，请重新登录"){
+    if(response.data==="登录状态已过期，请重新登录" || response.data==="登录状态已过期，请重新登录"){
       window.localStorage.clear()
-      // console.log(12346)
       history.pushState(null,null,"/login")
-    }else{
-      // console.log(response.data)
     }
     return response
   },

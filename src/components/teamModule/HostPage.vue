@@ -14,7 +14,7 @@
         <el-col :span="24">
 
           <i class="el-icon-notebook-2">
-            <span class="subTitle"> 已选课程</span>
+            <span class="subTitle"> 当前课程</span>
           </i>
 
         </el-col>

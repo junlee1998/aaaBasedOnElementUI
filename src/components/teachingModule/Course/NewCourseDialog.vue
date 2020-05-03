@@ -29,18 +29,18 @@
       </el-form-item>
       <!---->
 
-      <el-form-item label="排课方式" :label-width="formLabelWidth">
-        <el-col :span=span>
-          <el-select v-model="form.kind" autocomplete="off">
-            <el-option
-              v-for="item in options"
-              :key="item.value"
-              :label="item.label"
-              :value="item.value">
-            </el-option>
-          </el-select>
-        </el-col>
-      </el-form-item>
+<!--      <el-form-item label="排课方式" :label-width="formLabelWidth">-->
+<!--        <el-col :span=span>-->
+<!--          <el-select v-model="form.kind" autocomplete="off">-->
+<!--            <el-option-->
+<!--              v-for="item in options"-->
+<!--              :key="item.value"-->
+<!--              :label="item.label"-->
+<!--              :value="item.value">-->
+<!--            </el-option>-->
+<!--          </el-select>-->
+<!--        </el-col>-->
+<!--      </el-form-item>-->
 
       <el-form-item label="是否要组队" :label-width="formLabelWidth" prop="isTeam">
         <el-switch v-model="form.isTeam" autocomplete="off"></el-switch>
@@ -87,13 +87,13 @@
           isTeam: false,
           maxNum: 1
         },
-        options: [{//排课方式选项
-          value: 0,
-          label: '固定排课'
-        }, {
-          value: 1,
-          label: '任选排课'
-        }],
+        // options: [{//排课方式选项
+        //   value: 0,
+        //   label: '固定排课'
+        // }, {
+        //   value: 1,
+        //   label: '任选排课'
+        // }],
         span: 20,
         formLabelWidth: '120px',//label的宽度
         rules: {//验证内容

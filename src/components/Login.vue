@@ -26,12 +26,6 @@
 
   import {teacherMenu, studentMenu} from "../router/RouterAvailable";
 
-  document.onkeydown = function (event) {
-    var e = event || window.event || arguments.callee.caller.arguments[0];
-    if (e && e.keyCode === 13) { // 按 Esc
-    }
-  };
-
   import {mapActions, mapMutations} from 'vuex'
 
   export default {
@@ -101,8 +95,9 @@
               this.updateCurrentStatus(payload);
               this.getUserInfo();
 
-              console.log(this.$router)
               this.$router.push({path: "/user/info/"})
+            }else {
+              this.util.returnErr.call(this,response.data)
             }
           })
           .catch(err => {

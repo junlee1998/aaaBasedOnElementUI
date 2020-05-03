@@ -5,7 +5,7 @@
       :visible.sync="drawer"
       size="50%">
       <div slot="title">
-        <h1>请选择project</h1>
+        <h1>请选择实验项目</h1>
         <span class="tips">{{tips}}</span>
       </div>
       <el-collapse v-model="activeNames" @change="handleChange" accordion>
@@ -32,22 +32,10 @@
         courseId: 0,//课程Id.直接从父组件通过$refs更改
         projectsList: [],//保存获取到的project信息
         activeNames: '',//判断当前活动的drawer item
-        tips: "*必须从每个project中选择一个,预约成功后不可更换.　 *组队的课程只需要队长选课",//选课提示
+        tips: "*必须从每个实验项目中选择一个,预约成功后不可更换.　 *组队的课程只需要队长选课",//选课提示
       };
     },
     components: {ModuleInfo},
-    watch: {
-
-      /**
-       * @newVal :drawer变化后的新值
-       * 当drawer为true时,查询当前课程下的所有projects
-       */
-      // drawer(newVal) {
-      //   if (newVal === true) {
-      //     this.getProjects()
-      //   }
-      // }
-    },
     methods: {
 
       handleChange(val) {
@@ -60,9 +48,7 @@
           method: "post",
           url: "choosing/project/",
           params: {
-            userId: localStorage.token,
             courseId: this.courseId,
-
           }
         })
           .then(response => {
@@ -77,8 +63,6 @@
           .catch(err => {
           })
       },
-
-
     },
   }
 </script>
@@ -87,7 +71,6 @@
   .el-drawer.ltr, .el-drawer.rtl, .el-drawer__body {
     overflow: auto;
   }
-
   .tips {
     font-size: small;
     color: #ef1c1c;
