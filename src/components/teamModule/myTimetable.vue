@@ -6,7 +6,7 @@
     stripe>
     <el-table-column prop="project.course.course_name" label="课程名" width="180"
                      show-overflow-tooltip></el-table-column>
-    <el-table-column prop="project.project_name" label="projectName" width="180"
+    <el-table-column prop="project.project_name" label="项目名称" width="180"
                      show-overflow-tooltip></el-table-column>
     <el-table-column prop="project.hours" label="学时"></el-table-column>
     <el-table-column prop="project.course.credit" label="学分"></el-table-column>
